@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C M Booker — Furniture Restoration &amp; Bespoke Craftsmanship, since 1974</title>
+<meta name="description" content="A father-and-son furniture restoration workshop, since 1974. French polishing, upholstery and leather renovation, and bespoke joinery — across London and Surrey.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=DM+Serif+Text:ital@1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#F7F2E7;
+  --creme:#F2E7CE;
+  --creme-deep:#E9D9B4;
+  --panel:#FBF8F1;
+  --ink:#2A2018;
+  --ink-soft:#6E5F4E;
+  --line:#DDCEAE;
+  --brass:#A07C43;
+  --brass-deep:#7C5F32;
+  --terracotta:#B5432C;
+  --terracotta-deep:#8F311E;
+  --pad:clamp(1.25rem,5vw,4rem);
+  --maxw:1180px;
+  --bar:72px;
+  --stripe:4px;
+}
+body{padding-top:var(--stripe)}
+.top-stripe{position:fixed;top:0;left:0;right:0;height:var(--stripe);background:var(--terracotta);z-index:90}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--bar) + var(--stripe) + 16px)}
+body{
+  margin:0;background:var(--ivory);color:var(--ink);
+  font-family:Inter,'Helvetica Neue',Arial,sans-serif;
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:'DM Serif Text',Georgia,serif;font-style:italic;font-weight:400;margin:0;letter-spacing:-.005em;color:var(--ink)}
+p{margin:0}
+::selection{background:var(--brass);color:var(--ivory)}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.eyebrow{
+  font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.16em;
+  color:var(--ink-soft);display:flex;align-items:center;gap:.65rem;margin-bottom:.9rem;
+}
+.eyebrow::before{
+  content:"";width:34px;height:9px;flex:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='9' viewBox='0 0 34 9'%3E%3Cline x1='0' y1='4.5' x2='12' y2='4.5' stroke='%23B5432C' stroke-width='1'/%3E%3Crect x='14.7' y='2.2' width='4.6' height='4.6' transform='rotate(45 17 4.5)' fill='none' stroke='%23B5432C' stroke-width='1'/%3E%3Cline x1='22' y1='4.5' x2='34' y2='4.5' stroke='%23B5432C' stroke-width='1'/%3E%3C/svg%3E") no-repeat center/contain;
+}
+
+/* ---------------- top bar ---------------- */
+.bar{
+  position:fixed;top:var(--stripe);left:0;right:0;z-index:80;height:var(--bar);
+  display:flex;align-items:center;
+  background:rgba(251,248,241,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid transparent;transition:border-color .25s;
+}
+.bar.scrolled{border-bottom-color:var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:2.4rem;width:100%}
+.mark{display:flex;align-items:center;gap:.6rem;text-decoration:none;white-space:nowrap}
+.mark-badge{flex:none;width:38px;height:38px;display:grid;place-items:center}
+.mark-badge svg{width:100%;height:100%;fill:none;stroke:var(--brass);stroke-width:4.2;stroke-linecap:round;stroke-linejoin:round}
+.mark-text{display:flex;flex-direction:column;line-height:1}
+.mark-word{font-family:'DM Serif Text',serif;font-style:italic;font-weight:400;font-size:1.35rem;letter-spacing:.01em;color:var(--ink)}
+.mark-text small{display:block;font-size:.56rem;letter-spacing:.14em;color:var(--ink-soft);margin-top:1px;text-transform:uppercase}
+nav{margin-left:auto;display:flex;align-items:center;gap:2.1rem}
+nav a{
+  text-decoration:none;font-size:.82rem;font-weight:500;color:var(--ink-soft);
+  padding:2px 0;position:relative;transition:color .2s;
+}
+nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-3px;height:1px;background:var(--terracotta);transition:right .25s}
+nav a:hover{color:var(--ink)}
+nav a:hover::after{right:0}
+.nav-phone{padding-left:1.6rem;border-left:1px solid var(--line)}
+.burger{display:none;margin-left:auto;background:none;border:0;padding:8px;cursor:pointer}
+.burger span{display:block;width:20px;height:1.5px;background:var(--ink);margin:5px 0;transition:transform .3s,opacity .2s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* ---------------- buttons ---------------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  font-family:Inter,sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.01em;
+  padding:.85rem 1.55rem;border-radius:999px;border:1px solid transparent;cursor:pointer;
+  text-decoration:none;transition:background .2s,color .2s,border-color .2s,transform .2s,box-shadow .2s;white-space:nowrap;
+}
+.btn-primary{background:var(--terracotta);color:var(--ivory)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(181,67,44,.28)}
+.btn-primary:active{transform:translateY(-1px);box-shadow:0 5px 12px rgba(181,67,44,.24)}
+nav a.btn::after{content:none}
+.btn-ghost{border-color:var(--ink);color:var(--ink)}
+.btn-ghost:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(42,32,24,.16)}
+.btn-ghost:active{transform:translateY(-1px);box-shadow:0 5px 12px rgba(42,32,24,.14)}
+.btn-ghost:hover{border-color:var(--terracotta);color:var(--terracotta-deep)}
+.btn-sm{padding:.55rem 0;border:0;border-radius:0;gap:.4rem;font-size:.8rem;color:var(--terracotta-deep)}
+.btn-sm:hover{color:var(--ink)}
+
+/* ---------------- hero ---------------- */
+.hero{padding-top:calc(var(--bar) + var(--stripe) + clamp(2rem,5vw,3.4rem))}
+.hero-copy{max-width:660px;margin:0 auto;text-align:center}
+.hero h1{font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.14}
+.hero-sub{margin-top:1.2rem;color:var(--ink-soft);font-size:1.05rem;max-width:46ch;margin-left:auto;margin-right:auto}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:1.9rem;justify-content:center}
+.hero-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:clamp(2.4rem,5vw,3.6rem) auto 0}
+.hero-gallery .img-box{aspect-ratio:4/3;border-radius:8px;overflow:hidden;border:1px solid var(--terracotta);background:var(--creme)}
+.hero-gallery .img-box img{height:100%;width:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.hero-gallery .img-box:hover img{transform:scale(1.04)}
+
+/* ---------------- craft band ---------------- */
+.craft-band{padding:clamp(3.4rem,7vw,5.4rem) 0;text-align:center}
+.craft-rule{width:100%;max-width:640px;margin:0 auto;height:1px;background:var(--line);position:relative}
+.craft-rule::before{
+  content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(45deg);
+  width:8px;height:8px;border:1px solid var(--terracotta);background:var(--ivory);
+}
+.craft-quote{
+  font-family:'DM Serif Text',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.005em;color:var(--ink);
+  font-size:clamp(1.3rem,2.6vw,1.7rem);line-height:1.45;max-width:34ch;margin:2.2rem auto 0;
+}
+.craft-attr{margin-top:.9rem;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.craft-marks{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin:2.4rem auto}
+.mark-pill{
+  font-size:.76rem;letter-spacing:.03em;padding:.5rem 1.1rem;border-radius:999px;
+  background:var(--creme);border:1px solid var(--terracotta);color:var(--terracotta-deep);font-weight:500;
+}
+
+/* ---------------- stats ---------------- */
+.stats{
+  margin-top:clamp(2.4rem,5vw,3.6rem);display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.stat{padding:1.5rem 1rem;text-align:center;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0}
+.stat strong{display:block;font-family:'Fraunces',serif;font-size:1.28rem;font-weight:500;color:var(--ink)}
+.stat span{display:block;margin-top:.3rem;font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ---------------- generic section ---------------- */
+.sec{padding:clamp(3.6rem,8vw,6.5rem) 0}
+.sec-tint{background:var(--creme)}
+.sec-head{margin-bottom:clamp(2rem,4vw,2.8rem);max-width:640px}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head.center .eyebrow{justify-content:center}
+.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem);line-height:1.14}
+.sec-head .lede{color:var(--ink-soft);margin-top:.85rem;font-size:1rem}
+
+/* ---------------- intro ---------------- */
+.intro{max-width:640px;margin:0 auto;text-align:center}
+.intro p+p{margin-top:1.1rem}
+.intro p{color:var(--ink-soft)}
+
+/* ---------------- services ---------------- */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:2.6rem}
+.service-media{border-radius:4px;overflow:hidden;aspect-ratio:4/3;margin-bottom:1.2rem}
+.service-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.service:hover .service-media img{transform:scale(1.035)}
+.service-num{font-family:'Fraunces',serif;font-style:italic;font-size:.88rem;color:var(--terracotta-deep);display:block;margin-bottom:.4rem}
+.service h3{font-size:1.18rem;margin-bottom:.6rem}
+.service p{color:var(--ink-soft);font-size:.95rem}
+.tag-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.tag{font-size:.7rem;letter-spacing:.02em;padding:.32rem .7rem;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);background:var(--panel)}
+.service .btn-sm{margin-top:1rem}
+
+/* ---------------- gallery ---------------- */
+/* ---------------- carousel ---------------- */
+.carousel{position:relative;margin-top:.4rem}
+.carousel-track{
+  display:flex;gap:1.4rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  padding:0 var(--pad);-webkit-overflow-scrolling:touch;align-items:flex-start;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.carousel-track::-webkit-scrollbar{display:none}
+.carousel-slide{flex:0 0 auto;width:min(320px,62vw);scroll-snap-align:center;margin:0}
+.carousel-media{aspect-ratio:4/5;border-radius:6px;overflow:hidden;border:1px solid var(--terracotta);background:var(--panel);transition:transform .25s,box-shadow .25s}
+.carousel-slide:hover .carousel-media{transform:translateY(-3px);box-shadow:0 10px 20px rgba(181,67,44,.22)}
+.carousel-media img{width:100%;height:100%;object-fit:cover;display:block}
+.carousel-slide figcaption{
+  display:block;margin-top:.9rem;text-align:center;
+  font-family:'DM Serif Text',serif;font-style:italic;font-weight:400;
+  font-size:1rem;letter-spacing:.005em;color:var(--ink);
+}
+.carousel-arrow{
+  position:absolute;top:44%;transform:translateY(-50%);z-index:5;
+  width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--panel);
+  color:var(--ink);display:grid;place-items:center;cursor:pointer;
+  opacity:0;transition:opacity .25s,border-color .2s,color .2s;
+}
+.carousel:hover .carousel-arrow{opacity:1}
+.carousel-arrow:hover{border-color:var(--terracotta);color:var(--terracotta-deep)}
+.carousel-arrow.prev{left:calc(var(--pad) - 4px)}
+.carousel-arrow.next{right:calc(var(--pad) - 4px)}
+.carousel-footer{display:flex;justify-content:center;margin-top:1.6rem}
+.carousel-dots{display:flex;gap:.55rem}
+.dot{width:7px;height:7px;padding:0;border-radius:50%;border:none;background:var(--line);cursor:pointer;transition:background .2s,transform .2s}
+.dot.active{background:var(--terracotta);transform:scale(1.3)}
+
+/* ---------------- how we work ---------------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.6rem;position:relative}
+.step .num{
+  width:40px;height:40px;border-radius:50%;border:1.5px solid var(--terracotta);color:var(--terracotta-deep);
+  background:var(--panel);font-family:'Fraunces',serif;font-style:italic;font-size:1.05rem;font-weight:500;
+  display:grid;place-items:center;margin-bottom:1.1rem;
+}
+.step h3{font-size:1.08rem;margin-bottom:.5rem}
+.step p{color:var(--ink-soft);font-size:.94rem}
+
+/* ---------------- contact ---------------- */
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+#contact{padding:clamp(2rem,4.5vw,3.2rem) 0}
+#contact .sec-head{margin-bottom:1.5rem}
+.contact-media{border-radius:6px;overflow:hidden;aspect-ratio:16/11}
+.contact-media img{width:100%;height:100%;object-fit:cover}
+.contact-lede{color:var(--ink-soft);margin-bottom:1.7rem;max-width:44ch}
+.contact-rows{border-top:1px solid var(--line);margin-bottom:1.9rem}
+.crow{display:flex;justify-content:space-between;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.crow dt{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.crow dd{margin:0;text-align:right;font-size:.98rem}
+.crow a{text-decoration:none}
+.crow a:hover{color:var(--brass-deep)}
+
+/* ---------------- footer ---------------- */
+footer{background:var(--ink);color:#B7AB98;padding:3rem 0 2.2rem;font-size:.86rem;border-top:3px solid var(--terracotta)}
+.foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:2rem;padding-bottom:2.2rem;border-bottom:1px solid #4A4238}
+.foot-top .mark-word,.foot-top .mark-text small{color:#F1E9DC}
+.foot-nav{display:flex;gap:1.6rem;flex-wrap:wrap}
+.foot-nav a{text-decoration:none;color:#B7AB98;transition:color .2s}
+.foot-nav a:hover{color:#F1E9DC}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;padding-top:1.6rem;font-size:.8rem;color:#8A7F6E}
+
+@media (max-width:880px){
+  nav{position:fixed;top:calc(var(--bar) + var(--stripe));left:0;right:0;background:var(--panel);flex-direction:column;
+      align-items:flex-start;gap:1.1rem;padding:1.4rem var(--pad) 1.8rem;border-bottom:1px solid var(--line);
+      transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;}
+  .nav-phone{border-left:0;padding-left:0}
+  nav.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  nav .btn{margin-top:.4rem}
+  .burger{display:block}
+  .services,.steps{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .contact-media{max-width:420px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){border-left:0}
+}
+@media (max-width:600px){
+  .services,.steps{grid-template-columns:1fr}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .hero-gallery{grid-template-columns:1fr}
+  .carousel-arrow{display:none}
+  .carousel-slide{width:60vw}
+  .hero-gallery .img-box{aspect-ratio:4/3}
+  .crow{flex-direction:column;gap:.2rem}
+  .crow dd{text-align:left}
+  .foot-top,.foot-bottom{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div class="top-stripe" aria-hidden="true"></div>
+<div class="bar" id="bar">
+  <div class="wrap">
+    <a class="mark" href="#top">
+      <span class="mark-badge" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M32 30 C22 27 16 32 16 40 C16 45 19 48 23 49"/><path d="M68 30 C78 27 84 32 84 40 C84 45 81 48 77 49"/><path d="M32 30 C32 18 39 12 50 12 C61 12 68 18 68 30 L68 55 L32 55 Z"/><path d="M23 49 C19 51 17 55 17 60 L17 68 C17 71 19 73 22 73 L29 73 L29 56"/><path d="M77 49 C81 51 83 55 83 60 L83 68 C83 71 81 73 78 73 L71 73 L71 56"/><path d="M17 68 L83 68 L83 74 C83 77 81 79 78 79 L22 79 C19 79 17 77 17 74 Z"/><path d="M24 79 L23 90 M76 79 L77 90"/></svg></span>
+      <span class="mark-text"><span class="mark-word">C. M. Booker</span><small>Est. 1974</small></span>
+    </a>
+    <nav id="nav">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#how-we-work">How We Work</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-phone" href="tel:+442086426488">020 8642 6488</a>
+      <a class="btn btn-primary" href="#contact">Request a quote</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</div>
+
+<main id="top">
+
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <p class="eyebrow" style="justify-content:center">Est. 1974 · London &amp; Surrey</p>
+      <h1>Furniture restoration and bespoke craftsmanship, since 1974.</h1>
+      <p class="hero-sub">A father-and-son workshop, trusted with fine furniture across London and Surrey for fifty years.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Request a quote</a>
+        <a class="btn btn-ghost" href="#work">See our work</a>
+      </div>
+    </div>
+    <div class="hero-gallery">
+      <div class="img-box"><img src="assets/hero-detail-volute.jpg" alt="A hand-polished mahogany handrail volute"></div>
+      <div class="img-box"><img src="assets/hero-detail-carving.jpg" alt="Hand-carved acanthus detail on a restored oak bureau"></div>
+      <div class="img-box"><img src="assets/hero-detail-tufting.jpg" alt="Deep-buttoned leather tufting on a Chesterfield sofa"></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="stats">
+      <div class="stat"><strong>1974</strong><span>Established</span></div>
+      <div class="stat"><strong>50+</strong><span>Years of practice</span></div>
+      <div class="stat"><strong>Father &amp; son</strong><span>Family run, throughout</span></div>
+      <div class="stat"><strong>London &amp; Surrey</strong><span>Where we work</span></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="intro">
+        <p class="eyebrow" style="justify-content:center">The firm</p>
+        <h2 style="margin-bottom:1.3rem">A family workshop, since 1974</h2>
+        <p>C M Booker has been restoring fine furniture since 1974, and is still run by the same family. We work on pieces that matter — antiques handed down through generations, and furniture chosen to last a lifetime.</p>
+        <p>Most work is carried out at our Surrey workshop or on site in your home, across London and Surrey. We work directly with homeowners, as well as with interior designers and architects on client projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-tint" id="services">
+    <div class="wrap">
+      <div class="sec-head center">
+        <p class="eyebrow" style="justify-content:center">What we do</p>
+        <h2>Three areas of work</h2>
+        <p class="lede">Each piece is looked after from first inspection to final finish, by the same small team throughout.</p>
+      </div>
+      <div class="services">
+        <article class="service">
+          <div class="service-media"><img src="assets/polish-chest.jpg" alt="A mahogany chest of drawers, French polished"></div>
+          <span class="service-num">01</span>
+          <h3>Furniture Restoration &amp; French Polishing</h3>
+          <p>Structural repairs, veneer and inlay, and hand-built French polish finishes — restoring pieces without erasing their history.</p>
+          <div class="tag-row"><span class="tag">Antiques</span><span class="tag">Veneer &amp; inlay</span><span class="tag">Structural repairs</span></div>
+          <a class="btn-sm" href="#contact">Enquire →</a>
+        </article>
+        <article class="service">
+          <div class="service-media"><img src="assets/leather-chesterfield-tan.jpg" alt="A tan leather Chesterfield sofa after re-leathering"></div>
+          <span class="service-num">02</span>
+          <h3>Upholstery &amp; Leather Renovation</h3>
+          <p>Traditional stuffed and sprung upholstery, deep buttoning and leather renovation, carried out by hand from start to finish.</p>
+          <div class="tag-row"><span class="tag">Stuffed &amp; sprung</span><span class="tag">Deep buttoning</span><span class="tag">Leather renovation</span></div>
+          <a class="btn-sm" href="#contact">Enquire →</a>
+        </article>
+        <article class="service">
+          <div class="service-media"><img src="assets/joinery-stair-oak.jpg" alt="An oak staircase with brass balustrade, fitted on site"></div>
+          <span class="service-num">03</span>
+          <h3>Bespoke Joinery &amp; Panelling</h3>
+          <p>Fitted panelling and staircases, designed and installed on site by the same team — plus floor restoration where a room needs it.</p>
+          <div class="tag-row"><span class="tag">Panelling</span><span class="tag">Staircases</span><span class="tag">On-site fitting</span><span class="tag">Floor restoration</span></div>
+          <a class="btn-sm" href="#contact">Enquire →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="craft-band">
+    <div class="wrap">
+      <div class="craft-rule" aria-hidden="true"></div>
+      <p class="craft-quote">"We don't rush a French polish. Some finishes take three days to get right — so we take three days."</p>
+      <p class="craft-attr">— The workshop, C M Booker</p>
+      <div class="craft-marks">
+        <span class="mark-pill">Hand French-polished</span>
+        <span class="mark-pill">Traditional joinery</span>
+        <span class="mark-pill">Every piece inspected</span>
+        <span class="mark-pill">Father &amp; son, since 1974</span>
+      </div>
+      <div class="craft-rule" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Selected projects</p>
+        <h2>Recent work in London and Surrey homes</h2>
+        <p class="lede">A small selection of pieces and rooms we've worked on recently — flick through, or let it play.</p>
+      </div>
+    </div>
+
+    <div class="carousel" id="carousel">
+      <div class="carousel-track" id="carouselTrack">
+        <figure class="carousel-slide">
+          <div class="carousel-media"><img src="assets/leather-wing-chair-sharp.jpg" alt="A leather wing chair after re-upholstery" loading="lazy"></div>
+          <figcaption>Wing chair, re-upholstered in leather</figcaption>
+        </figure>
+        <figure class="carousel-slide">
+          <div class="carousel-media"><img src="assets/joinery-volute-sharp.jpg" alt="A hand-polished mahogany handrail volute" loading="lazy"></div>
+          <figcaption>Hand-polished mahogany handrail volute</figcaption>
+        </figure>
+        <figure class="carousel-slide">
+          <div class="carousel-media"><img src="assets/panel-door-oak-sharp.jpg" alt="A bespoke oak entrance door" loading="lazy"></div>
+          <figcaption>Bespoke oak entrance door</figcaption>
+        </figure>
+        <figure class="carousel-slide">
+          <div class="carousel-media"><img src="assets/polish-carved-chest-sharp.jpg" alt="A carved oak bureau, restored" loading="lazy"></div>
+          <figcaption>Carved oak bureau, restored</figcaption>
+        </figure>
+        <figure class="carousel-slide">
+          <div class="carousel-media"><img src="assets/floor-oak-sharp.jpg" alt="A parquet floor, sanded and refinished" loading="lazy"></div>
+          <figcaption>Parquet floor, sanded and refinished</figcaption>
+        </figure>
+        <figure class="carousel-slide">
+          <div class="carousel-media"><img src="assets/polish-round-table-sharp.jpg" alt="A Regency table, French polished" loading="lazy"></div>
+          <figcaption>Regency table, French polished</figcaption>
+        </figure>
+      </div>
+      <button class="carousel-arrow prev" id="carouselPrev" aria-label="Previous project" type="button">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="carousel-arrow next" id="carouselNext" aria-label="Next project" type="button">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 5 L16 12 L9 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <div class="wrap">
+      <div class="carousel-footer">
+        <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Select project">
+          <button class="dot active" data-i="0" type="button" role="tab" aria-label="Project 1"></button>
+          <button class="dot" data-i="1" type="button" role="tab" aria-label="Project 2"></button>
+          <button class="dot" data-i="2" type="button" role="tab" aria-label="Project 3"></button>
+          <button class="dot" data-i="3" type="button" role="tab" aria-label="Project 4"></button>
+          <button class="dot" data-i="4" type="button" role="tab" aria-label="Project 5"></button>
+          <button class="dot" data-i="5" type="button" role="tab" aria-label="Project 6"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec sec-tint" id="how-we-work">
+    <div class="wrap">
+      <div class="sec-head center">
+        <p class="eyebrow" style="justify-content:center">How we work</p>
+        <h2>A simple, three-step process</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Send us photographs</h3>
+          <p>A few pictures and a line about the piece is usually enough for an initial estimate.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>Discuss your project</h3>
+          <p>We talk it through, or visit in person for anything substantial, before agreeing the work.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Receive a tailored quote</h3>
+          <p>A clear, written quotation, with no obligation to proceed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Tell us about your piece</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-media">
+          <img src="assets/finishes-samples.jpg" alt="Stained timber sample boards laid out in the workshop">
+        </div>
+        <div>
+          <p class="contact-lede">Send a few photographs and a line about what's needed — we'll come back to you the same working day.</p>
+          <dl class="contact-rows">
+            <div class="crow"><dt>Phone</dt><dd><a href="tel:+442086426488">020 8642 6488</a></dd></div>
+            <div class="crow"><dt>Email</dt><dd><a href="mailto:info@cmbooker.co.uk">info@cmbooker.co.uk</a></dd></div>
+            <div class="crow"><dt>Workshop</dt><dd>46 Upper Mulgrave Road, Sutton, Surrey SM2 7AJ</dd></div>
+            <div class="crow"><dt>Areas</dt><dd>Sutton, Cheam, Epsom, Banstead, Wimbledon, Richmond, Kingston, Guildford &amp; central London</dd></div>
+          </dl>
+          <div class="hero-actions" style="justify-content:flex-start;margin-top:0">
+            <a class="btn btn-primary" href="mailto:info@cmbooker.co.uk?subject=Enquiry%20from%20the%20website">Request a quote</a>
+            <a class="btn btn-ghost" href="tel:+442086426488">Call now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <a class="mark" href="#top">
+        <span class="mark-badge" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M32 30 C22 27 16 32 16 40 C16 45 19 48 23 49"/><path d="M68 30 C78 27 84 32 84 40 C84 45 81 48 77 49"/><path d="M32 30 C32 18 39 12 50 12 C61 12 68 18 68 30 L68 55 L32 55 Z"/><path d="M23 49 C19 51 17 55 17 60 L17 68 C17 71 19 73 22 73 L29 73 L29 56"/><path d="M77 49 C81 51 83 55 83 60 L83 68 C83 71 81 73 78 73 L71 73 L71 56"/><path d="M17 68 L83 68 L83 74 C83 77 81 79 78 79 L22 79 C19 79 17 77 17 74 Z"/><path d="M24 79 L23 90 M76 79 L77 90"/></svg></span>
+        <span class="mark-text"><span class="mark-word">C. M. Booker</span><small>Est. 1974</small></span>
+      </a>
+      <nav class="foot-nav">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#how-we-work">How We Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <p>Furniture restoration and bespoke craftsmanship in London and Surrey.</p>
+      <p>© 2026 C M Booker. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var bar = document.getElementById('bar');
+  window.addEventListener('scroll', function(){
+    bar.classList.toggle('scrolled', window.scrollY > 8);
+  }, {passive:true});
+
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      nav.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  /* Scroll #contact fully into view (not just its top edge) so the
+     quote button at the bottom of the section is always visible. */
+  var contactSection = document.getElementById('contact');
+  function scrollContactIntoView(e){
+    if (e) e.preventDefault();
+    var navH = bar.offsetHeight + 4; /* + top stripe */
+    var vh = window.innerHeight;
+    var available = vh - navH;
+    var rect = contactSection.getBoundingClientRect();
+    var elTop = rect.top + window.scrollY;
+    var target;
+    if (rect.height <= available) {
+      target = elTop - navH - (available - rect.height) / 2;
+    } else {
+      target = elTop - navH - 12;
+    }
+    window.scrollTo({top: Math.max(target, 0), behavior: 'smooth'});
+    if (history.replaceState) history.replaceState(null, '', '#contact');
+  }
+  document.querySelectorAll('a[href="#contact"]').forEach(function(a){
+    a.addEventListener('click', scrollContactIntoView);
+  });
+})();
+
+/* ---------------- carousel ---------------- */
+(function(){
+  "use strict";
+  var carousel = document.getElementById('carousel');
+  if (!carousel) return;
+  var track = document.getElementById('carouselTrack');
+  var slides = Array.prototype.slice.call(track.children);
+  var dots = Array.prototype.slice.call(document.querySelectorAll('#carouselDots .dot'));
+  var prevBtn = document.getElementById('carouselPrev');
+  var nextBtn = document.getElementById('carouselNext');
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var activeIndex = 0;
+  var autoTimer = null;
+  var resumeTimer = null;
+  var AUTO_DELAY = 3800;
+  var RESUME_DELAY = 2600;
+
+  function setActive(i){
+    if (i === activeIndex) return;
+    activeIndex = i;
+    dots.forEach(function(d, idx){ d.classList.toggle('active', idx === i); });
+  }
+
+  /* Track which slide is centred as the user scrolls, swipes, or auto-advances.
+     Uses direct geometry rather than IntersectionObserver, since two adjacent
+     slides can both cross a visibility threshold at once and cause flicker. */
+  function getCenterIndex(){
+    var trackRect = track.getBoundingClientRect();
+    var centerX = trackRect.left + trackRect.width / 2;
+    var closest = 0, closestDist = Infinity;
+    slides.forEach(function(s, idx){
+      var r = s.getBoundingClientRect();
+      var dist = Math.abs((r.left + r.width / 2) - centerX);
+      if (dist < closestDist){ closestDist = dist; closest = idx; }
+    });
+    return closest;
+  }
+  var scrollSettleTimer;
+  var programmaticUntil = 0;
+  track.addEventListener('scroll', function(){
+    clearTimeout(scrollSettleTimer);
+    scrollSettleTimer = setTimeout(function(){
+      if (Date.now() < programmaticUntil) return;
+      setActive(getCenterIndex());
+    }, 80);
+  }, {passive: true});
+
+  function slideTarget(i){
+    var s = slides[i];
+    return s.offsetLeft - (track.clientWidth - s.offsetWidth) / 2;
+  }
+  function goTo(i){
+    var next = (i + slides.length) % slides.length;
+    track.scrollTo({left: slideTarget(next), behavior: 'smooth'});
+    setActive(next);
+    programmaticUntil = Date.now() + 1200;
+  }
+
+  function startAuto(){
+    if (reducedMotion) return;
+    stopAuto();
+    autoTimer = setInterval(function(){ goTo(activeIndex + 1); }, AUTO_DELAY);
+  }
+  function stopAuto(){
+    if (autoTimer){ clearInterval(autoTimer); autoTimer = null; }
+  }
+  function pauseThenResume(){
+    stopAuto();
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(startAuto, RESUME_DELAY);
+  }
+
+  nextBtn.addEventListener('click', function(){ goTo(activeIndex + 1); pauseThenResume(); });
+  prevBtn.addEventListener('click', function(){ goTo(activeIndex - 1); pauseThenResume(); });
+  dots.forEach(function(d, idx){
+    d.addEventListener('click', function(){ goTo(idx); pauseThenResume(); });
+  });
+
+  /* Pause on hover (desktop) and touch (mobile); resume shortly after */
+  carousel.addEventListener('mouseenter', stopAuto);
+  carousel.addEventListener('mouseleave', startAuto);
+  carousel.addEventListener('touchstart', stopAuto, {passive: true});
+  carousel.addEventListener('touchend', pauseThenResume, {passive: true});
+  track.addEventListener('wheel', pauseThenResume, {passive: true});
+
+  track.scrollLeft = slideTarget(0);
+  activeIndex = -1;
+  setActive(0);
+  startAuto();
+})();
+</script>
+
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
